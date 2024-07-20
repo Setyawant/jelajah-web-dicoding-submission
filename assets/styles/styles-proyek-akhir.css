@@ -1,0 +1,656 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --warna1: #004e9a;
+  --warna2: #041b2d;
+  --bg: #010407;
+  --warna3: #56c596;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* height: 1000vh; */
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+}
+
+body,
+a {
+  font-size: 1rem;
+  color: #fff;
+}
+
+a:hover {
+  color: var(--warna1);
+}
+
+.animation {
+  opacity: 0;
+  transform: translateX(-300px);
+  transition: all 0.7s ease-out;
+  transition-delay: 0.4s;
+}
+
+.scroll-animation {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Header */
+header.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: rgba(4, 27, 45, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+header.navbar-container .logo a {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--warna1), var(--warna3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+header.navbar-container .nav-list ul {
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  gap: 1rem;
+}
+
+header.navbar-container .nav-list a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--warna1);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+header.navbar-container .nav-list a:hover::after {
+  transform: scaleX(1);
+}
+
+header.navbar-container .nav-list-extra a {
+  margin: 0 0.5rem;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Main */
+/* Hero Page */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slideshow-container .myslides {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slideshow-container .myslides img {
+  filter: brightness(70%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fade 20s;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 4, 7, 1),
+    rgba(255, 255, 255, 0) 80%
+  );
+}
+
+.hero .content {
+  padding: 1.5rem 5%;
+  max-width: 45rem;
+  display: block;
+  position: absolute;
+}
+
+.hero .content h1 {
+  font-size: 5rem;
+  text-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+  line-height: 1;
+}
+
+.hero .content p {
+  margin-top: 1rem;
+  text-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-image: linear-gradient(90deg, var(--warna1), var(--warna3));
+  background-size: 200%;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+  animation: gradient-animation 10s infinite alternate;
+}
+
+.hero .content a {
+  font-weight: 700;
+}
+
+.hero .content a:hover {
+  color: var(--bg);
+}
+
+/* About Page */
+.about,
+.destinasi,
+.faq,
+.kontak {
+  padding: 7rem 5% 1rem;
+}
+
+.about h2,
+.destinasi h2,
+.faq h2,
+.kontak h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 30rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.about .row .about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.2s;
+}
+
+.about .row .about-img img:hover {
+  transform: scale(1.2);
+}
+
+.about .row .content {
+  flex: 1 1 30rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .content p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Destinasi Page */
+.destinasi p,
+.faq p,
+.kontak p {
+  text-align: center;
+}
+
+.destinasi .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.destinasi .row .destinasi-card {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 20rem;
+  border-radius: 0.5rem;
+}
+
+.destinasi .row .destinasi-card-img {
+  margin: 1rem;
+  height: 10rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+}
+
+.destinasi .row .destinasi-card img {
+  width: 20rem;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.2s;
+}
+
+.destinasi .row .destinasi-card img:hover {
+  transform: scale(1.2);
+}
+
+.destinasi .row .destinasi-card .destinasi-card-title,
+.destinasi .row .destinasi-card .destinasi-card-rating,
+.destinasi .row .destinasi-card .destinasi-card-price {
+  margin-bottom: 0.5rem;
+  color: var(--bg);
+}
+
+.destinasi .row .destinasi-card .destinasi-card-rating .yellow-icon {
+  fill: yellow;
+  color: yellow;
+  width: 1rem;
+  height: 1rem;
+}
+
+.destinasi .row .destinasi-card .pesan {
+  display: inline-block;
+  background-color: var(--warna3);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+}
+
+.destinasi .row .destinasi-card .pesan:hover {
+  background-color: rgba(86, 197, 150, 0.8);
+}
+
+/* FAQ Page */
+.faq .pertanyaan {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  background-color: rgba(4, 27, 45, 0.8);
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.faq .pertanyaan .pertanyaan-list .accordion {
+  background-color: #fff;
+  font-size: 1rem;
+  font-family: "Poppins";
+  text-align: left;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.faq .pertanyaan .pertanyaan-list .active-acordion,
+.faq .pertanyaan .pertanyaan-list .accordion:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.faq .pertanyaan .pertanyaan-list .accordion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.faq .pertanyaan .pertanyaan-list .accordion:after {
+  content: "\002B"; /* Unicode character for "plus" sign (+) */
+  font-size: 1rem;
+  color: var(--bg);
+  font-weight: bold;
+}
+
+.faq .pertanyaan .pertanyaan-list .active-acordion:after {
+  content: "\2212"; /* Unicode character for "minus" sign (-) */
+}
+
+.faq .pertanyaan .pertanyaan-list .panel {
+  padding: 0 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--bg);
+  max-height: 0;
+  border-radius: 0 0 0.5rem 0.5rem;
+  overflow: hidden;
+  transition: max-height 0s ease-in-out;
+}
+
+.faq .pertanyaan .pertanyaan-list .panel p {
+  text-align: left;
+  padding: 1rem;
+}
+
+/* Kontak Page */
+.kontak .kontak-kami {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.kontak .kontak-kami .input-form {
+  background-color: rgba(4, 27, 45, 0.8);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: var(--warna3);
+  font-family: "Poppins";
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: rgba(86, 197, 150, 0.8);
+}
+
+/* Aside Page */
+.biodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.biodata .biodata-card {
+  position: relative;
+  background-color: rgba(4, 27, 45, 0.8);
+  width: 25rem;
+  height: 12rem;
+  /* height: 30rem; */
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+  transition: 0.5s;
+}
+
+.biodata .biodata-card:hover {
+  height: 30rem;
+}
+
+.biodata .biodata-card:hover .img-box {
+  width: 15rem;
+  height: 15rem;
+}
+
+.biodata .biodata-card .img-box {
+  position: absolute;
+  left: 50%;
+  top: -5rem;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 10rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 6px rgba(1, 4, 7, 0.8);
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.biodata .biodata-card .img-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.biodata .biodata-card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.biodata .biodata-card .content .details {
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  transition: 0.5s;
+  transform: translateY(65%);
+}
+
+.biodata .biodata-card:hover .content .details {
+  transform: translateY(0);
+}
+
+.biodata .biodata-card .content .details h2 {
+  padding: 1.5rem;
+  font-size: 2rem;
+  line-height: 0.8;
+}
+
+.biodata .biodata-card .content .details h2 span {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.biodata .biodata-card .content .details .data {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.biodata .biodata-card .content .details .data h3 {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.biodata .biodata-card .content .details .data h3 span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.biodata .biodata-card .content .details .button {
+  display: flex;
+  justify-content: center;
+}
+
+.biodata .biodata-card .content .details .button button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 400;
+  background: var(--warna3);
+  color: #fff;
+  cursor: pointer;
+}
+
+.biodata .biodata-card .content .details .button button:hover {
+  background-color: rgba(86, 197, 150, 0.8);
+}
+
+/* Footer */
+footer.footer-container {
+  background-color: rgba(4, 27, 45, 0.8);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer.footer-container .social-media {
+  padding: 1rem 0;
+}
+
+footer.footer-container .social-media a {
+  margin: 1rem;
+}
+
+footer.footer-container .navigation {
+  margin-bottom: 1rem;
+}
+
+footer.footer-container .navigation a {
+  padding: 1rem;
+}
+
+/* Animasi untuk gradiasi */
+@keyframes gradient-animation {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+
+/* Animasi untuk efek pergantian gambar */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+
+  header.navbar-container .nav-list {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(4, 27, 45, 0.8);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.5s;
+  }
+
+  header.navbar-container .nav-list.active {
+    right: 0;
+  }
+
+  header.navbar-container .nav-list ul {
+    display: block;
+    margin: 2rem 0.5rem;
+  }
+
+  header.navbar-container .nav-list a {
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
+
+  header.navbar-container .nav-list a::after {
+    margin: 0 2rem;
+    transform-origin: 0 0;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about .row .about-img img {
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+  }
+}
